@@ -8,7 +8,6 @@ import numpy as np
 import random
 from colorama import Fore
 
-
 JOGADOR = 1
 COMPUTADOR = 2
 JOGADOR_GANHOU = False
@@ -41,8 +40,14 @@ def imprime_matrix(matrix):
 def jogo(matrix, ordem):
 
     while not ( JOGADOR_GANHOU or COMPUTADOR_GANHOU ):
-        jogador_joga(matrix)
-        computador_joga(matrix)
+
+        if ordem == (JOGADOR, COMPUTADOR):
+            jogador_joga(matrix)
+            computador_joga(matrix)
+
+        if ordem == (COMPUTADOR, JOGADOR):
+            computador_joga(matrix)
+            jogador_joga(matrix)
 
 def jogador_joga(matrix):
     print('Sua vez!')
